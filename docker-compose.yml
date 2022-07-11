@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 volumes:
   data:
@@ -6,6 +6,9 @@ volumes:
 services:
   mongo:
     image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin123
     ports:
       - 27017:27017
     volumes:
@@ -18,7 +21,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - '3000:3000'
+      - "3000:3000"
     networks:
       - app-network
 
